@@ -1,5 +1,14 @@
 # Subsetting 1
 
+x <- c(0, 0, 0, 0, 1, 0, 0)
+# index where x != 1
+i <- which(x != 0)
+# logical of TRUEs and FALSEs
+l <- x != 0
+# value that is != 0
+v <- x[x!=0]
+
+
 vec <- c(6, 1, 3, 6, 10, 5)
 
 df <- data.frame(
@@ -178,8 +187,13 @@ b <- c(1, 2, 3, NA, 5)
 # use na.rm=TRUE to ignore NAs
 sum(b, na.rm = TRUE)
 
-# 
+# look at Min.
 summary(diamonds$x)
 # replace inplausible diamonds$x with NA
-diamonds$x[diamonds$x == 0] <- NA
+x_zeroes <- diamonds$x == 0     # x is 0
+diamonds$x[x_zeroes] <- NA      # replace with NA
+y_too_big <- diamonds$y > 20    # y > 20
+diamonds$y[y_too_big] <- NA     # replace with NA
 summary(diamonds$x)
+diamonds[x_zeroes | y_too_big ,]
+qplot(x, y, data = diamonds)

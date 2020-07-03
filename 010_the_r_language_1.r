@@ -15,6 +15,9 @@ rm(foo)
 
 # built-in dataset
 WorldPhones
+class(WorldPhones)
+rownames(WorldPhones)
+colnames(WorldPhones)
 
 # vector
 vec <- c(1, 2, 3, 10, 100)
@@ -48,8 +51,9 @@ a2
 
 ## Four Basic Data Types
 
-# 1. numeric
+# 1. numeric & integer
 class(0.111)
+class(1L)
 
 # 2. character
 class("hello")
@@ -61,10 +65,9 @@ class(TRUE)
 3 < 4
 class(T)
 
-# 4. factor
+# 4. factor (categorical data)
 fac <- factor(c("a", "b", "c", "a", "a", "c"))
 fac
-class(fac)
 
 # vector has ONE data type!
 vec <- c(1, "R", TRUE)
@@ -120,12 +123,8 @@ names(nvec)
 names(nvec) <- c("eins", "zwei", "drei")
 nvec
 
-# naemed list
-nlst <- list(
-  numbers = c(1, 2),
-  logicals = TRUE,
-  letters = c("a", "b" , "c")
-)
+# named list
+nlst <- list(numbers = c(1, 2), logicals = TRUE, letters = c("a", "b" , "c"))
 
 nlst
 names(nlst)
